@@ -16,7 +16,8 @@ Script:
   - SOOS_LATEST_REPO="https://api.github.com/repos/soos-io/soos-ci-analysis-python/releases/latest"
   - SOOS_TAGS="https://api.github.com/repos/soos-io/soos-ci-analysis-python/releases/tags/$tag"
   - # ARGS WHERE CUSTOMIZATION IS OPTIONAL:
-  - SOOS_MODE="async_init"
+  #- SOOS_MODE="async_init"
+  - SOOS_MODE="run_and_wait"
   - SOOS_ON_FAILURE="fail_the_build"
   - SOOS_DIRS_TO_EXCLUDE="soos"
   - SOOS_FILES_TO_EXCLUDE=""
@@ -47,15 +48,6 @@ Script:
   - pip3 install -r "${SOOS_CHECKOUT_DIR}/soos/requirements.txt"
   - python3 soos.py -m="${SOOS_MODE}" -of="${SOOS_ON_FAILURE}" -dte="${SOOS_DIRS_TO_EXCLUDE}" -fte="${SOOS_FILES_TO_EXCLUDE}" -wd="${SOOS_CHECKOUT_DIR}" -armw=${SOOS_ANALYSIS_RESULT_MAX_WAIT} -arpi=${SOOS_ANALYSIS_RESULT_POLLING_INTERVAL} -buri="${SOOS_API_BASE_URL}" -scp="${SOOS_CHECKOUT_DIR}" -pn="${SOOS_PROJECT_NAME}"
 
-## ... NON-SOOS STEPS MAY GO HERE ... 
-
-#RESULT STEP
-
-
-  - SOOS_MODE="run_and_wait"
-  - python3 soos/soos.py -m="${SOOS_MODE}" -of="${SOOS_ON_FAILURE}" -dte="${SOOS_DIRS_TO_EXCLUDE}" -fte="${SOOS_FILES_TO_EXCLUDE}" -wd="${SOOS_CHECKOUT_DIR}" -armw=${SOOS_ANALYSIS_RESULT_MAX_WAIT} -arpi=${SOOS_ANALYSIS_RESULT_POLLING_INTERVAL} -buri="${SOOS_API_BASE_URL}" -scp="${SOOS_CHECKOUT_DIR}" -pn="${SOOS_PROJECT_NAME}"
-
-## ... NON-SOOS STEPS MAY GO HERE ... 
 
 
 
