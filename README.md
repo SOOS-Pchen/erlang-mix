@@ -1,6 +1,6 @@
 # Test.Proj
 
-**TODO: Add description**
+**TODO: Add descriptions**
 
 ## Installation
 
